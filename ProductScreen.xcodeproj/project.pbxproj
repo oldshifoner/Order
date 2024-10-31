@@ -21,6 +21,7 @@
 		94E5701A2CD3754B00271FFF /* ListReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E570192CD3754B00271FFF /* ListReviewsViewController.swift */; };
 		94E5703C2CD3BF2600271FFF /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5703B2CD3BF2600271FFF /* ReviewViewController.swift */; };
 		94E5703E2CD3C53C00271FFF /* ReviewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5703D2CD3C53C00271FFF /* ReviewsListViewModel.swift */; };
+		94E570402CD3D50B00271FFF /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5703F2CD3D50B00271FFF /* ReviewCell.swift */; };
 		94FCEBA82CC020EC005BB7BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FCEBA72CC020EC005BB7BD /* AppDelegate.swift */; };
 		94FCEBAA2CC020EC005BB7BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FCEBA92CC020EC005BB7BD /* SceneDelegate.swift */; };
 		94FCEBAC2CC020EC005BB7BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FCEBAB2CC020EC005BB7BD /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 		94E570192CD3754B00271FFF /* ListReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReviewsViewController.swift; sourceTree = "<group>"; };
 		94E5703B2CD3BF2600271FFF /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		94E5703D2CD3C53C00271FFF /* ReviewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsListViewModel.swift; sourceTree = "<group>"; };
+		94E5703F2CD3D50B00271FFF /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		94FCEBA42CC020EC005BB7BD /* ProductScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94FCEBA72CC020EC005BB7BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94FCEBA92CC020EC005BB7BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				94AB5B1D2CC78921006B21FC /* ApplyPromoCodeCell.swift */,
 				94A48CFD2CCD165C007D4C11 /* SecretPromoCell.swift */,
 				94A48D012CCE325D007D4C11 /* EnterPromoCell.swift */,
+				94E5703F2CD3D50B00271FFF /* ReviewCell.swift */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				94AB5B1C2CC788D9006B21FC /* TotalCell.swift in Sources */,
 				94AB5B1E2CC78921006B21FC /* ApplyPromoCodeCell.swift in Sources */,
 				94E5701A2CD3754B00271FFF /* ListReviewsViewController.swift in Sources */,
+				94E570402CD3D50B00271FFF /* ReviewCell.swift in Sources */,
 				94AB5B202CC789B3006B21FC /* ViewModel.swift in Sources */,
 				94AB5B182CC7817A006B21FC /* PromoCell.swift in Sources */,
 			);
