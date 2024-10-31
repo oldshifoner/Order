@@ -193,6 +193,19 @@ struct TableViewModel {
             let title: String
             let info: String
         }
+        struct Review{
+            let id : String
+            let title: String
+            let size: String
+            let evaluation: String? = nil
+            let titleImage: String
+            let selfImages: [String]? = nil
+            let advantages: String? = nil
+            let disadvantages: String? = nil
+            let comment: String? = nil
+            let anonymously: Bool
+            let isWritten: Bool
+        }
 
         case info(TitleInfo)
         case promo(Promo)
@@ -200,6 +213,7 @@ struct TableViewModel {
         case total(Total)
         case secretPromo(SecretPromo)
         case enterSecretPromo(EnterSecretPromo)
+        case review(Review)
     }
     
     var type: ViewModelType

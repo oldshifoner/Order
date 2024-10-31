@@ -28,8 +28,9 @@ struct MyReviewsList {
 let reviewList = MyReviewsList(screenTitle: "Напишите отзыв", reviews: [
     .init(title: "Золотое плоское обручальное кольцо 4 мм", size: "17", titleImage: "goldRingPruduct1", anonymously: true, isWritten: false),
     .init(title: "Золотое плоское обручальное кольцо 4 мм", size: "15", titleImage: "goldRingPruduct2", anonymously: true, isWritten: false),
-    .init(title: "Золотое плоское обручальное кольцо 4 мм", size: "12", titleImage: "goldRingPruduct3", anonymously: true, isWritten: false),
-    .init(title: "Золотое плоское обручальное кольцо 4 мм", size: "20", titleImage: "goldRingPruduct4", anonymously: true, isWritten: false)])
+    .init(title: "Серебрянное плоское обручальное кольцо 6 мм", size: "12", titleImage: "silverRingProduct1", anonymously: true, isWritten: false),
+    .init(title: "Золотое плоское обручальное кольцо 4 мм", size: "20", titleImage: "goldRingPruduct3", anonymously: true, isWritten: false),
+    .init(title: "Золотое плоское обручальное кольцо 4 мм", size: "20", titleImage: "goldRingPruduct4", anonymously: true, isWritten: true)])
 
 
 class ListReviewsViewController: UIViewController {
