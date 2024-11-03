@@ -11,10 +11,6 @@ class ReviewsListViewModel {
     lazy var cellViewModels: [TableViewModel] = []
     lazy var reviews: [TableViewModel] = []
     
-    var tableViewUpdate: (() -> Void)?
-    var totalUpdate: ((Int) -> Void)?
-    var clouser: ((String) -> Void)?
-    
     public func showReviews(reviewList: MyReviewsList){
         cellViewModels = []
         

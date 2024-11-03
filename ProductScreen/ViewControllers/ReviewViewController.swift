@@ -9,6 +9,17 @@ import UIKit
 
 class ReviewViewController: UIViewController {
     
+    private lazy var viewModel = ReviewViewModel()
+    
+    init(reviewViewModel: TableViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        viewModel.review = reviewViewModel
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -36,6 +47,7 @@ class ReviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.showReview()
         setupUI()
     }
     

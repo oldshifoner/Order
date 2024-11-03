@@ -67,8 +67,8 @@ class ListReviewsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        print(indexPath)
-        self.navigationController?.pushViewController(ReviewViewController(), animated: true)
+        print(indexPath.item)
+        self.navigationController?.pushViewController(ReviewViewController(reviewViewModel: viewModel.cellViewModels[indexPath.item]), animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
