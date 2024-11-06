@@ -12,7 +12,7 @@ struct MyReviewsList {
     struct Review {
         let title: String
         let size: String
-        let evaluation: String? = nil
+        let evaluation: Evaluation? = nil
         let titleImage: String
         let selfImages: [String]? = nil
         let advantages: String? = nil
@@ -68,7 +68,8 @@ class ListReviewsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         print(indexPath.item)
-        self.navigationController?.pushViewController(ReviewViewController(reviewViewModel: viewModel.cellViewModels[indexPath.item]), animated: true)
+        guard let review = viewModel.getCellReviewViewModels(index: indexPath.item) else { return }
+        self.navigationController?.pushViewController(ReviewViewController(reviewViewModel: review), animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

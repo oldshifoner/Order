@@ -11,7 +11,7 @@ class ReviewViewController: UIViewController {
     
     private lazy var viewModel = ReviewViewModel()
     
-    init(reviewViewModel: TableViewModel) {
+    init(reviewViewModel: TableViewModel.ViewModelType.Review) {
         super.init(nibName: nil, bundle: nil)
         viewModel.review = reviewViewModel
         }
@@ -19,7 +19,18 @@ class ReviewViewController: UIViewController {
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
-    
+    private lazy var tableView: UITableView = {
+            let tableView = UITableView()
+            tableView.backgroundColor = .white
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.frame = view.bounds
+            tableView.separatorStyle = .none
+            tableView.register(TitleReviewCell.self, forCellReuseIdentifier: String(describing: TitleReviewCell.self))
+            tableView.register(PlusMinusCommentViewCell.self, forCellReuseIdentifier: String(describing: PlusMinusCommentViewCell.self))
+            tableView.register(EvaluationViewCell.self, forCellReuseIdentifier: String(describing: EvaluationViewCell.self))
+            return tableView
+        }()
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -50,7 +61,6 @@ class ReviewViewController: UIViewController {
         viewModel.showReview()
         setupUI()
     }
-    
     private func setupUI(){
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -67,5 +77,53 @@ class ReviewViewController: UIViewController {
             backButton.heightAnchor.constraint(equalToConstant: 24),
             backButton.widthAnchor.constraint(equalToConstant: 24),
         ])
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
     }
 }
+extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.cellViewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = self.viewModel.cellViewModels[indexPath.row]
+        
+        switch viewModel.type {
+            
+        case .titleReview(let titleReview):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TitleReviewCell.self)) as? TitleReviewCell else {
+                return UITableViewCell()
+            }
+            cell.viewModel = titleReview
+            cell.selectionStyle = .none
+            return cell
+        case .plusMinusComment(let plusMinusComment):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PlusMinusCommentViewCell.self)) as? PlusMinusCommentViewCell else {
+                return UITableViewCell()
+            }
+            cell.viewModel = plusMinusComment
+            cell.selectionStyle = .none
+            return cell
+        case .evaluation(let evaluation):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: EvaluationViewCell.self)) as? EvaluationViewCell else {
+                return UITableViewCell()
+            }
+            cell.viewModel = evaluation
+            cell.selectionStyle = .none
+            return cell
+            
+        default: return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+}
+

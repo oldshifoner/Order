@@ -11,6 +11,29 @@ class ReviewsListViewModel {
     lazy var cellViewModels: [TableViewModel] = []
     lazy var reviews: [TableViewModel] = []
     
+    public func getCellReviewViewModels(index: Int) -> TableViewModel.ViewModelType.Review? {
+        
+        let element = cellViewModels[index].type
+        switch element {
+        case .review(let review):
+            let review = review
+            return TableViewModel.ViewModelType.Review(
+                id: review.id,
+                title: review.title,
+                size: review.size,
+                evaluation: review.evaluation,
+                titleImage: review.titleImage,
+                selfImages: review.selfImages,
+                advantages: review.advantages,
+                disadvantages: review.disadvantages,
+                comment: review.comment,
+                anonymously: review.anonymously,
+                isWritten: review.isWritten)
+        default:
+            return nil
+        }
+    }
+    
     public func showReviews(reviewList: MyReviewsList){
         cellViewModels = []
         
@@ -20,7 +43,12 @@ class ReviewsListViewModel {
                     id: UUID().uuidString,
                     title: review.title,
                     size: review.size,
+                    evaluation: review.evaluation,
                     titleImage: review.titleImage,
+                    selfImages: review.selfImages,
+                    advantages: review.advantages,
+                    disadvantages: review.disadvantages,
+                    comment: review.comment,
                     anonymously: review.anonymously,
                     isWritten: review.isWritten))))
             }

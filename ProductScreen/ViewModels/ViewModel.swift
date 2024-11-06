@@ -193,18 +193,31 @@ struct TableViewModel {
             let title: String
             let info: String
         }
-        struct Review{
+        struct Review {
             let id : String
             let title: String
             let size: String
-            let evaluation: String? = nil
+            let evaluation: Evaluation?
             let titleImage: String
-            let selfImages: [String]? = nil
-            let advantages: String? = nil
-            let disadvantages: String? = nil
-            let comment: String? = nil
+            let selfImages: [String]?
+            let advantages: String?
+            let disadvantages: String?
+            let comment: String?
             let anonymously: Bool
             let isWritten: Bool
+            init(id: String, title: String, size: String, evaluation: Evaluation?, titleImage: String, selfImages: [String]?, advantages: String?, disadvantages: String?, comment: String?, anonymously: Bool, isWritten: Bool) {
+                self.id = id
+                self.title = title
+                self.size = size
+                self.evaluation = evaluation
+                self.titleImage = titleImage
+                self.selfImages = selfImages
+                self.advantages = advantages
+                self.disadvantages = disadvantages
+                self.comment = comment
+                self.anonymously = anonymously
+                self.isWritten = isWritten
+            }
         }
 
         case info(TitleInfo)
@@ -214,6 +227,11 @@ struct TableViewModel {
         case secretPromo(SecretPromo)
         case enterSecretPromo(EnterSecretPromo)
         case review(Review)
+        case titleReview(Review)
+        case evaluation(Review)
+        case userPhotos(Review)
+        case plusMinusComment(Review)
+        case sendReview(Review)
     }
     
     var type: ViewModelType
