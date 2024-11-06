@@ -9,6 +9,8 @@ import UIKit
 
 class StarUIImageView: UIImageView{
     
+    var imageIsTapped: (() -> Void)? = {}
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupProperties()
@@ -22,5 +24,12 @@ class StarUIImageView: UIImageView{
     private func setupProperties() {
         super.backgroundColor = .clear
         super.translatesAutoresizingMaskIntoConstraints = false
+        super.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        super.addGestureRecognizer(tapGesture)
+    }
+    @objc private func imageTapped() {
+        imageIsTapped?()
     }
 }

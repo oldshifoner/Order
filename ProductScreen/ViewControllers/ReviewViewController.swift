@@ -59,6 +59,13 @@ class ReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.showReview()
+        viewModel.evaluationUpdate = { [weak self] index in
+            guard let self else { return }
+            tableView.beginUpdates()
+            tableView.reloadRows(at: [.init(row: index, section: 0)], with: .none)
+            tableView.endUpdates()
+            return
+        }
         setupUI()
     }
     private func setupUI(){
@@ -115,6 +122,11 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.viewModel = evaluation
+            cell.imageTapped = { [weak self] index in
+                guard let self else { return }
+                guard let clouser = self.viewModel.clouser else { return }
+                clouser(index)
+            }
             cell.selectionStyle = .none
             return cell
             

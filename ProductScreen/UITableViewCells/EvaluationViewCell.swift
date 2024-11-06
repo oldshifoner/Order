@@ -8,6 +8,9 @@
 import UIKit
 
 class EvaluationViewCell: UITableViewCell{
+    
+    var imageTapped: ((Int)->Void)?
+    
     var viewModel: TableViewModel.ViewModelType.Review? {
         didSet {
             updateUI()
@@ -18,11 +21,12 @@ class EvaluationViewCell: UITableViewCell{
             return
         }
         updateEvaluationUI(viewModel: viewModel)
+        assignmentOfClouserForStarImages()
     }
     
     private func updateEvaluationUI(viewModel: TableViewModel.ViewModelType.Review){
         
-        for index in 0...starImages.count - 1 {
+        for index in 0..<starImages.count {
             starImages[index].image = UIImage(named: "starGray")
         }
         evaluationLabel.text = "Ваша оценка"
@@ -32,12 +36,21 @@ class EvaluationViewCell: UITableViewCell{
         let count = evaluation.index
         let name = evaluation.name
        
-        for index in 0...count - 1 {
+        for index in 0..<count {
             starImages[index].image = UIImage(named: "starGold")
         }
         
         evaluationLabel.text = name
-        
+        evaluationLabel.textColor = .black
+    }
+    
+    private func assignmentOfClouserForStarImages(){
+        for index in 0..<starImages.count{
+            guard self.starImages[index].imageIsTapped != nil else {return}
+            self.starImages[index].imageIsTapped = {
+                self.imageTapped?(index)
+            }
+        }
     }
     
     override func prepareForReuse() {
@@ -47,12 +60,13 @@ class EvaluationViewCell: UITableViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var starImages: [UIImageView] = [
+    private var starImages: [StarUIImageView] = [
         StarUIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)),
         StarUIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)),
         StarUIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)),
         StarUIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)),
-        StarUIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))]
+        StarUIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+    ]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
