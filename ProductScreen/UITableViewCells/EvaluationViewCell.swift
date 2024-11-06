@@ -9,9 +9,11 @@ import UIKit
 
 class EvaluationViewCell: UITableViewCell{
     
-    var imageTapped: ((Int)->Void)?
+    public var imageTapped: ((Int)->Void)?
     
-    var viewModel: TableViewModel.ViewModelType.Review? {
+    //private lazy var backgroundErrorViewHeight: Int = 65
+    
+    public var viewModel: TableViewModel.ViewModelType.Review? {
         didSet {
             updateUI()
         }
@@ -22,6 +24,7 @@ class EvaluationViewCell: UITableViewCell{
         }
         updateEvaluationUI(viewModel: viewModel)
         assignmentOfClouserForStarImages()
+        
     }
     
     private func updateEvaluationUI(viewModel: TableViewModel.ViewModelType.Review){
@@ -42,6 +45,7 @@ class EvaluationViewCell: UITableViewCell{
         
         evaluationLabel.text = name
         evaluationLabel.textColor = .black
+        setupErrorUI(height: 0)
     }
     
     private func assignmentOfClouserForStarImages(){
@@ -54,13 +58,16 @@ class EvaluationViewCell: UITableViewCell{
     }
     
     override func prepareForReuse() {
-       
+        for index in 0..<starImages.count {
+            starImages[index].image = nil
+        }
+        evaluationLabel.text = nil
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var starImages: [StarUIImageView] = [
+    private lazy var starImages: [StarUIImageView] = [
         StarUIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)),
         StarUIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)),
         StarUIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)),
@@ -132,7 +139,7 @@ class EvaluationViewCell: UITableViewCell{
         backgroundErrorView.addSubview(errorImage)
         contentView.bottomAnchor.constraint(equalTo: backgroundErrorView.bottomAnchor).isActive = true
         
-        setupErrorUI()
+        setupErrorUI(height: 65)
         
         NSLayoutConstraint.activate([
             backgroundEvaluationView.heightAnchor.constraint(equalToConstant: 54),
@@ -177,10 +184,9 @@ class EvaluationViewCell: UITableViewCell{
         
     }
     
-    private func setupErrorUI(){
+    private func setupErrorUI(height: Int){
         NSLayoutConstraint.activate([
-            
-            backgroundErrorView.heightAnchor.constraint(equalToConstant: 65),
+            backgroundErrorView.heightAnchor.constraint(equalToConstant: CGFloat(height)),
             backgroundErrorView.topAnchor.constraint(equalTo: backgroundEvaluationView.bottomAnchor, constant: 12),
             backgroundErrorView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             backgroundErrorView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),

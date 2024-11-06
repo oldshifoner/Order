@@ -9,7 +9,7 @@ import UIKit
 
 class StarUIImageView: UIImageView{
     
-    var imageIsTapped: (() -> Void)? = {}
+    public var imageIsTapped: (() -> Void)? = {}
     
     override init(frame: CGRect) {
         super.init(frame: frame)
