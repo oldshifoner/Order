@@ -91,36 +91,6 @@ class EvaluationViewCell: UITableViewCell{
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private lazy var starImage1: UIImageView = {
-        let image = UIImageView()
-        image.backgroundColor = .clear
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    private lazy var starImage2: UIImageView = {
-        let image = UIImageView()
-        image.backgroundColor = .clear
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    private lazy var starImage3: UIImageView = {
-        let image = UIImageView()
-        image.backgroundColor = .clear
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    private lazy var starImage4: UIImageView = {
-        let image = UIImageView()
-        image.backgroundColor = .clear
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    private lazy var starImage5: UIImageView = {
-        let image = UIImageView()
-        image.backgroundColor = .clear
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
     private lazy var backgroundErrorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(red: 255/255, green: 236/255, blue: 236/255, alpha: 1)
