@@ -11,20 +11,15 @@ class EvaluationViewCell: UITableViewCell{
     
     public var imageTapped: ((Int)->Void)?
     
-    //private lazy var backgroundErrorViewHeight: Int = 65
-    
     public var viewModel: TableViewModel.ViewModelType.Review? {
         didSet {
             updateUI()
+            assignmentOfClouserForStarImages()
         }
     }
     private func updateUI() {
-        guard let viewModel else {
-            return
-        }
+        guard let viewModel else { return }
         updateEvaluationUI(viewModel: viewModel)
-        assignmentOfClouserForStarImages()
-        
     }
     
     private func updateEvaluationUI(viewModel: TableViewModel.ViewModelType.Review){
@@ -50,9 +45,8 @@ class EvaluationViewCell: UITableViewCell{
     
     private func assignmentOfClouserForStarImages(){
         for index in 0..<starImages.count{
-            guard self.starImages[index].imageIsTapped != nil else {return}
-            self.starImages[index].imageIsTapped = {
-                self.imageTapped?(index)
+            starImages[index].imageIsTapped = { [weak self] in
+                self?.imageTapped?(index)
             }
         }
     }
@@ -63,6 +57,7 @@ class EvaluationViewCell: UITableViewCell{
         }
         evaluationLabel.text = nil
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

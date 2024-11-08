@@ -29,6 +29,7 @@
 		94E5704A2CD7D4D100271FFF /* ReviewUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E570492CD7D4D100271FFF /* ReviewUITextField.swift */; };
 		94E5704C2CD7F63F00271FFF /* EvaluationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5704B2CD7F63F00271FFF /* EvaluationViewCell.swift */; };
 		94E5704E2CDB72EB00271FFF /* StarUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5704D2CDB72EB00271FFF /* StarUIImageView.swift */; };
+		94E570502CDE060400271FFF /* CheckBoxAnonymouslyUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5704F2CDE060400271FFF /* CheckBoxAnonymouslyUIButton.swift */; };
 		94FCEBA82CC020EC005BB7BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FCEBA72CC020EC005BB7BD /* AppDelegate.swift */; };
 		94FCEBAA2CC020EC005BB7BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FCEBA92CC020EC005BB7BD /* SceneDelegate.swift */; };
 		94FCEBAC2CC020EC005BB7BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FCEBAB2CC020EC005BB7BD /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 		94E570492CD7D4D100271FFF /* ReviewUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUITextField.swift; sourceTree = "<group>"; };
 		94E5704B2CD7F63F00271FFF /* EvaluationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationViewCell.swift; sourceTree = "<group>"; };
 		94E5704D2CDB72EB00271FFF /* StarUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarUIImageView.swift; sourceTree = "<group>"; };
+		94E5704F2CDE060400271FFF /* CheckBoxAnonymouslyUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxAnonymouslyUIButton.swift; sourceTree = "<group>"; };
 		94FCEBA42CC020EC005BB7BD /* ProductScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94FCEBA72CC020EC005BB7BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94FCEBA92CC020EC005BB7BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		94AB5B152CC761FE006B21FC /* UITableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				94E570512CDE061A00271FFF /* CustomUIViews */,
 				94AB5B172CC7817A006B21FC /* PromoCell.swift */,
 				94AB5B192CC7822A006B21FC /* TitleCell.swift */,
 				94AB5B1B2CC788D9006B21FC /* TotalCell.swift */,
@@ -89,9 +92,7 @@
 				94E570432CD79CFD00271FFF /* TitleReviewCell.swift */,
 				94E570452CD7CB2100271FFF /* PlusMinusCommentViewCell.swift */,
 				94E570472CD7CB3E00271FFF /* SendReviewViewCell.swift */,
-				94E570492CD7D4D100271FFF /* ReviewUITextField.swift */,
 				94E5704B2CD7F63F00271FFF /* EvaluationViewCell.swift */,
-				94E5704D2CDB72EB00271FFF /* StarUIImageView.swift */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -116,6 +117,16 @@
 				94E5703B2CD3BF2600271FFF /* ReviewViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		94E570512CDE061A00271FFF /* CustomUIViews */ = {
+			isa = PBXGroup;
+			children = (
+				94E570492CD7D4D100271FFF /* ReviewUITextField.swift */,
+				94E5704D2CDB72EB00271FFF /* StarUIImageView.swift */,
+				94E5704F2CDE060400271FFF /* CheckBoxAnonymouslyUIButton.swift */,
+			);
+			path = CustomUIViews;
 			sourceTree = "<group>";
 		};
 		94FCEB9B2CC020EC005BB7BD = {
@@ -230,6 +241,7 @@
 				94E5703E2CD3C53C00271FFF /* ReviewsListViewModel.swift in Sources */,
 				94A48CFC2CCCFE03007D4C11 /* ApplyPromoViewController.swift in Sources */,
 				94E5704E2CDB72EB00271FFF /* StarUIImageView.swift in Sources */,
+				94E570502CDE060400271FFF /* CheckBoxAnonymouslyUIButton.swift in Sources */,
 				94AB5B1A2CC7822A006B21FC /* TitleCell.swift in Sources */,
 				94A48D022CCE325D007D4C11 /* EnterPromoCell.swift in Sources */,
 				94E570482CD7CB3E00271FFF /* SendReviewViewCell.swift in Sources */,

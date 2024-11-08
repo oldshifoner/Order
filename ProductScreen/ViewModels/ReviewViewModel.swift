@@ -16,6 +16,7 @@ class ReviewViewModel {
     var tableViewUpdate: (() -> Void)?
     var evaluationUpdate: ((Int) -> Void)?
     var clouser: ((Int) -> Void)?
+    var changeAnonymouslyClouser: ((Bool) -> Void)?
     
     public func showReview() {
         guard let review = self.review else{ return }
@@ -24,20 +25,29 @@ class ReviewViewModel {
         //TableViewModel.ViewModelType.userPhotos(review)
         cellViewModels.append(.init(type: .plusMinusComment(review)))
         cellViewModels.append(.init(type: .sendReview(review)))
-        changeEvaluation()
+        initClouserForChangeEvaluation()
+        initClouserForChangeAnonymously()
     }
     
-    private func changeEvaluation(){
-        
+    private func initClouserForChangeAnonymously(){
+        self.changeAnonymouslyClouser = { [weak self] anonymously in
+            
+            guard let index = self?.getIndexSendReview() else {return}
+            let element = self?.cellViewModels[index].type
+            switch element {
+            case .sendReview(let sendReview):
+                let sendReview = sendReview
+                self?.cellViewModels.remove(at: index)
+                self?.cellViewModels.insert(.init(type: .sendReview(.init(id: sendReview.id, title: sendReview.title, size: sendReview.size, evaluation: sendReview.evaluation, titleImage: sendReview.titleImage, selfImages: sendReview.selfImages, advantages: sendReview.advantages, disadvantages: sendReview.disadvantages, comment: sendReview.comment, anonymously: anonymously, isWritten: sendReview.isWritten))), at: index)
+            default:
+                break
+            }
+        }
+    }
+    
+    private func initClouserForChangeEvaluation(){
         self.clouser = { [weak self] evaluationIndex in
-            guard let index = self?.cellViewModels.firstIndex(where: { value in
-                switch value.type {
-                case .evaluation(let evaluation):
-                    return true
-                default:
-                    return false
-                }
-            }) else { return }
+            guard let index = self?.getIndexEvaluation() else {return}
             let element = self?.cellViewModels[index].type
             switch element {
             case .evaluation(let evaluation):
@@ -51,9 +61,68 @@ class ReviewViewModel {
         }
         
     }
+    
+    
     private func getObjectEvaluation(index: Int) -> Evaluation{
         return Evaluation(name: evaluationArray[index], index: index + 1)
     }
+    
+    private func getIndexTitleReview() -> Int?{
+        guard let index = self.cellViewModels.firstIndex(where: { value in
+            switch value.type {
+            case .titleReview(let titleReview):
+                return true
+            default:
+                return false
+            }
+        }) else { return nil}
+        return index
+    }
+    private func getIndexEvaluation() -> Int?{
+        guard let index = self.cellViewModels.firstIndex(where: { value in
+            switch value.type {
+            case .evaluation(let evaluation):
+                return true
+            default:
+                return false
+            }
+        }) else { return nil }
+        return index
+    }
+    private func getIndexUserPhotos() -> Int?{
+        guard let index = self.cellViewModels.firstIndex(where: { value in
+            switch value.type {
+            case .userPhotos(let userPhotos):
+                return true
+            default:
+                return false
+            }
+        }) else { return nil }
+        return index
+    }
+    private func getIndexPlusMinusComment() -> Int?{
+        guard let index = self.cellViewModels.firstIndex(where: { value in
+            switch value.type {
+            case .plusMinusComment(let plusMinusComment):
+                return true
+            default:
+                return false
+            }
+        }) else { return nil}
+        return index
+    }
+    private func getIndexSendReview() -> Int?{
+        guard let index = self.cellViewModels.firstIndex(where: { value in
+            switch value.type {
+            case .sendReview(let sendReview):
+                return true
+            default:
+                return false
+            }
+        }) else { return nil}
+        return index
+    }
+    
 }
 
 struct Evaluation {

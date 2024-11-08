@@ -29,6 +29,7 @@ class ReviewViewController: UIViewController {
             tableView.register(TitleReviewCell.self, forCellReuseIdentifier: String(describing: TitleReviewCell.self))
             tableView.register(PlusMinusCommentViewCell.self, forCellReuseIdentifier: String(describing: PlusMinusCommentViewCell.self))
             tableView.register(EvaluationViewCell.self, forCellReuseIdentifier: String(describing: EvaluationViewCell.self))
+            tableView.register(SendReviewViewCell.self, forCellReuseIdentifier: String(describing: SendReviewViewCell.self))
             return tableView
         }()
     private lazy var titleLabel: UILabel = {
@@ -126,6 +127,18 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
                 guard let self else { return }
                 guard let clouser = self.viewModel.clouser else { return }
                 clouser(index)
+            }
+            cell.selectionStyle = .none
+            return cell
+        case .sendReview(let sendReview):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SendReviewViewCell.self)) as? SendReviewViewCell else {
+                return UITableViewCell()
+            }
+            cell.viewModel = sendReview
+            cell.clouserCheckBoxAnonymously = { [weak self] value in
+                guard let self else { return }
+                guard let clouser = self.viewModel.changeAnonymouslyClouser else { return }
+                clouser(value)
             }
             cell.selectionStyle = .none
             return cell
