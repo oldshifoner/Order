@@ -10,12 +10,34 @@ import UIKit
 class ReviewViewController: UIViewController {
     
     private lazy var viewModel = ReviewViewModel()
+    private var activeTextField: UITextField?
     
     init(reviewViewModel: TableViewModel.ViewModelType.Review) {
         super.init(nibName: nil, bundle: nil)
         viewModel.review = reviewViewModel
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         }
-        
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let activeTextField = activeTextField else { return }
+            
+            if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                let keyboardHeight = keyboardFrame.height
+                let textFieldBottomY = activeTextField.convert(activeTextField.bounds, to: view).maxY
+                let screenHeight = view.bounds.height
+                
+                if textFieldBottomY > (screenHeight - keyboardHeight) {
+                    view.frame.origin.y = -(textFieldBottomY - (screenHeight - keyboardHeight) + 20)
+                }
+            }
+        }
+
+        @objc func keyboardWillHide(notification: NSNotification) {
+            view.frame.origin.y = 0
+        }
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
@@ -116,6 +138,11 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.viewModel = plusMinusComment
+            cell.clouserActiveTextField = { [weak self] textField in
+                guard let self else { return }
+                //guard let activeTextField = self.activeTextField else { return }
+                self.activeTextField = textField
+            }
             cell.selectionStyle = .none
             return cell
         case .evaluation(let evaluation):
