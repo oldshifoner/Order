@@ -140,7 +140,6 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
             cell.viewModel = plusMinusComment
             cell.clouserActiveTextField = { [weak self] textField in
                 guard let self else { return }
-                //guard let activeTextField = self.activeTextField else { return }
                 self.activeTextField = textField
             }
             cell.selectionStyle = .none
