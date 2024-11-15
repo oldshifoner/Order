@@ -40,7 +40,7 @@ class EvaluationViewCell: UITableViewCell{
         
         evaluationLabel.text = name
         evaluationLabel.textColor = .black
-        setupErrorUI(height: 0)
+        setupErrorUI(height: 0, bottomAnchor: 0)
     }
     
     private func assignmentOfClouserForStarImages(){
@@ -134,7 +134,7 @@ class EvaluationViewCell: UITableViewCell{
         backgroundErrorView.addSubview(errorImage)
         contentView.bottomAnchor.constraint(equalTo: backgroundErrorView.bottomAnchor).isActive = true
         
-        setupErrorUI(height: 65)
+        setupErrorUI(height: 65, bottomAnchor: 12)
         
         NSLayoutConstraint.activate([
             backgroundEvaluationView.heightAnchor.constraint(equalToConstant: 54),
@@ -179,10 +179,10 @@ class EvaluationViewCell: UITableViewCell{
         
     }
     
-    private func setupErrorUI(height: Int){
+    private func setupErrorUI(height: Int, bottomAnchor: Int){
         NSLayoutConstraint.activate([
             backgroundErrorView.heightAnchor.constraint(equalToConstant: CGFloat(height)),
-            backgroundErrorView.topAnchor.constraint(equalTo: backgroundEvaluationView.bottomAnchor, constant: 12),
+            backgroundErrorView.topAnchor.constraint(equalTo: backgroundEvaluationView.bottomAnchor, constant: CGFloat(bottomAnchor)),
             backgroundErrorView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             backgroundErrorView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
         ])

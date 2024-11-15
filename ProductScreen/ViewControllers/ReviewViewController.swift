@@ -42,17 +42,18 @@ class ReviewViewController: UIViewController {
             fatalError("init(coder:) has not been implemented")
         }
     private lazy var tableView: UITableView = {
-            let tableView = UITableView()
-            tableView.backgroundColor = .white
-            tableView.delegate = self
-            tableView.dataSource = self
-            tableView.frame = view.bounds
-            tableView.separatorStyle = .none
-            tableView.register(TitleReviewCell.self, forCellReuseIdentifier: String(describing: TitleReviewCell.self))
-            tableView.register(PlusMinusCommentViewCell.self, forCellReuseIdentifier: String(describing: PlusMinusCommentViewCell.self))
-            tableView.register(EvaluationViewCell.self, forCellReuseIdentifier: String(describing: EvaluationViewCell.self))
-            tableView.register(SendReviewViewCell.self, forCellReuseIdentifier: String(describing: SendReviewViewCell.self))
-            return tableView
+        let tableView = UITableView()
+        tableView.backgroundColor = .white
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.frame = view.bounds
+        tableView.separatorStyle = .none
+        tableView.register(TitleReviewCell.self, forCellReuseIdentifier: String(describing: TitleReviewCell.self))
+        tableView.register(PlusMinusCommentViewCell.self, forCellReuseIdentifier: String(describing: PlusMinusCommentViewCell.self))
+        tableView.register(EvaluationViewCell.self, forCellReuseIdentifier: String(describing: EvaluationViewCell.self))
+        tableView.register(SendReviewViewCell.self, forCellReuseIdentifier: String(describing: SendReviewViewCell.self))
+        tableView.register(UserPhotoViewCell.self, forCellReuseIdentifier: String(describing: UserPhotoViewCell.self))
+        return tableView
         }()
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -133,6 +134,15 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
             cell.viewModel = titleReview
             cell.selectionStyle = .none
             return cell
+            
+        case .userPhotos(let userPhotos):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UserPhotoViewCell.self)) as? UserPhotoViewCell else {
+                return UITableViewCell()
+            }
+            cell.viewModel = userPhotos
+            cell.selectionStyle = .none
+            return cell
+            
         case .plusMinusComment(let plusMinusComment):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PlusMinusCommentViewCell.self)) as? PlusMinusCommentViewCell else {
                 return UITableViewCell()

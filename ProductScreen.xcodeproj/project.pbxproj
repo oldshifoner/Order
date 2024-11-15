@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		948D49C32CE209A700F6AA32 /* UserPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */; };
 		94A48CFC2CCCFE03007D4C11 /* ApplyPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A48CFB2CCCFE03007D4C11 /* ApplyPromoViewController.swift */; };
 		94A48CFE2CCD165C007D4C11 /* SecretPromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A48CFD2CCD165C007D4C11 /* SecretPromoCell.swift */; };
 		94A48D002CCE1F4C007D4C11 /* ApplyPromoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A48CFF2CCE1F4C007D4C11 /* ApplyPromoViewModel.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoViewCell.swift; sourceTree = "<group>"; };
 		94A48CFB2CCCFE03007D4C11 /* ApplyPromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyPromoViewController.swift; sourceTree = "<group>"; };
 		94A48CFD2CCD165C007D4C11 /* SecretPromoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretPromoCell.swift; sourceTree = "<group>"; };
 		94A48CFF2CCE1F4C007D4C11 /* ApplyPromoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyPromoViewModel.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				94E570512CDE061A00271FFF /* CustomUIViews */,
 				94AB5B172CC7817A006B21FC /* PromoCell.swift */,
+				948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */,
 				94AB5B192CC7822A006B21FC /* TitleCell.swift */,
 				94AB5B1B2CC788D9006B21FC /* TotalCell.swift */,
 				94AB5B1D2CC78921006B21FC /* ApplyPromoCodeCell.swift */,
@@ -247,6 +250,7 @@
 				94E570482CD7CB3E00271FFF /* SendReviewViewCell.swift in Sources */,
 				94FCEBAA2CC020EC005BB7BD /* SceneDelegate.swift in Sources */,
 				94AB5B1C2CC788D9006B21FC /* TotalCell.swift in Sources */,
+				948D49C32CE209A700F6AA32 /* UserPhotoViewCell.swift in Sources */,
 				94E570462CD7CB2100271FFF /* PlusMinusCommentViewCell.swift in Sources */,
 				94AB5B1E2CC78921006B21FC /* ApplyPromoCodeCell.swift in Sources */,
 				94E5704A2CD7D4D100271FFF /* ReviewUITextField.swift in Sources */,

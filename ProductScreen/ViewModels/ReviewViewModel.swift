@@ -22,7 +22,7 @@ class ReviewViewModel {
         guard let review = self.review else{ return }
         cellViewModels.append(.init(type: .titleReview(review)))
         cellViewModels.append(.init(type: .evaluation(review)))
-        //TableViewModel.ViewModelType.userPhotos(review)
+        cellViewModels.append(.init(type: .userPhotos(review)))
         cellViewModels.append(.init(type: .plusMinusComment(review)))
         cellViewModels.append(.init(type: .sendReview(review)))
         initClouserForChangeEvaluation()
