@@ -21,6 +21,7 @@ class ReviewViewModel {
     var clouser: ((Int) -> Void)?
     var changeAnonymouslyClouser: ((Bool) -> Void)?
     var addPhotoClouser: ((Int) -> Void)?
+    var deletePhotoClouser: ((Int) -> Void)?
     
     public func showReview() {
         guard let review = self.review else{ return }
@@ -32,6 +33,34 @@ class ReviewViewModel {
         initClouserForChangeEvaluation()
         initClouserForChangeAnonymously()
         initClouserForAddPhoto()
+        initClouserForDeletePhoto()
+    }
+    
+    private func initClouserForDeletePhoto(){
+        self.deletePhotoClouser = { [weak self] indexPhoto in
+            
+            guard let index = self?.getIndexUserPhotos() else {return}
+            let element = self?.cellViewModels[index].type
+            switch element {
+            case .userPhotos(let userPhotos):
+                let userPhotos = userPhotos
+                self?.cellViewModels.remove(at: index)
+                self?.cellViewModels.insert(.init(type: .userPhotos(.init(id: userPhotos.id, title: userPhotos.title, size: userPhotos.size, evaluation: userPhotos.evaluation, titleImage: userPhotos.titleImage, selfImages: self?.deletePhotoInArrayUserPhotos(selfImages: userPhotos.selfImages,indexPhoto: indexPhoto), advantages: userPhotos.advantages, disadvantages: userPhotos.disadvantages, comment: userPhotos.comment, anonymously: userPhotos.anonymously, isWritten: userPhotos.isWritten))), at: index)
+                self?.imagesCellUpdate?(index)
+            default:
+                break
+            }
+        }
+    }
+    
+    private func deletePhotoInArrayUserPhotos(selfImages: [String]?, indexPhoto: Int) -> [String]? {
+        guard var selfImages else{
+            return nil
+        }
+        
+        selfImages.remove(at: indexPhoto)
+        if selfImages.count == 0 { return nil }
+        return selfImages
     }
     
     private func initClouserForAddPhoto(){

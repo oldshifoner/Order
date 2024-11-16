@@ -143,8 +143,8 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.viewModel = userPhotos
-//            cell.addImageClouser = {[weak self] index in self?.viewModel.addPhotoClouser?(index)}
             cell.addImageClouser = self.viewModel.addPhotoClouser
+            cell.deleteImageClouser = self.viewModel.deletePhotoClouser
             cell.selectionStyle = .none
             return cell
             

@@ -13,6 +13,7 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
         static let number: CGFloat = 4
     }
     public var addImageClouser: ((Int) -> Void)?
+    public var deleteImageClouser: ((Int) -> Void)?
     
     private var tapGesture: UITapGestureRecognizer?
     private let itemMaxCount = 7
@@ -40,7 +41,9 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
         let selfImage = self.viewModel?.selfImages?[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoViewCell", for: indexPath) as! PhotoViewCell
         cell.selfImage = selfImage
-        
+        cell.deleteImageClouser = {
+            [weak self] in self?.deleteImageClouser?(indexPath.row)
+        }
         return cell
     }
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

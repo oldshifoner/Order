@@ -14,6 +14,7 @@ class PhotoViewCell: UICollectionViewCell{
             selfImageUIView.image = UIImage(named: selfImage)
         }
     }
+    public var deleteImageClouser: (() -> Void)?
     
     private lazy var selfImageUIView: UIImageView = {
         let image = UIImageView()
@@ -23,7 +24,20 @@ class PhotoViewCell: UICollectionViewCell{
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-    
+    private lazy var closeButtonView: UIButton = {
+        let button = UIButton()
+        let imageView = UIImageView(image: UIImage(named: "delete"))
+        button.setImage(imageView.image, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.backgroundColor = .clear
+        button.isEnabled = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchDown)
+        return button
+    }()
+    @objc func buttonTapped(_ sender: UIButton) {
+        deleteImageClouser?()
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,6 +48,7 @@ class PhotoViewCell: UICollectionViewCell{
     
     private func setupUI(){
         contentView.addSubview(selfImageUIView)
+        contentView.addSubview(closeButtonView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -41,6 +56,12 @@ class PhotoViewCell: UICollectionViewCell{
             selfImageUIView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             selfImageUIView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             selfImageUIView.topAnchor.constraint(equalTo: contentView.topAnchor),
+        ])
+        NSLayoutConstraint.activate([
+            closeButtonView.heightAnchor.constraint(equalToConstant: 20),
+            closeButtonView.widthAnchor.constraint(equalToConstant: 20),
+            closeButtonView.rightAnchor.constraint(equalTo: contentView.rightAnchor,constant: -4),
+            closeButtonView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
         ])
     }
    
