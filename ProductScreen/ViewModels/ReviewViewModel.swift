@@ -9,9 +9,11 @@ import Foundation
 
 class ReviewViewModel {
     
-    lazy var review: TableViewModel.ViewModelType.Review? = nil
-    lazy var cellViewModels: [TableViewModel] = []
-    lazy var evaluationArray: [String] = ["Ужасно","Плохо","Нормально","Хорошо","Отлично"]
+    public lazy var cellViewModels: [TableViewModel] = []
+    public lazy var review: TableViewModel.ViewModelType.Review? = nil
+    
+    private lazy var evaluationArray: [String] = ["Ужасно","Плохо","Нормально","Хорошо","Отлично"]
+    private var photosLocal: [String] = ["media1","media2","media3","media4","media5","media6","media7"]
     
     var tableViewUpdate: (() -> Void)?
     var evaluationUpdate: ((Int) -> Void)?

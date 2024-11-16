@@ -108,7 +108,7 @@ class PlusMinusCommentViewCell: UITableViewCell, UITextFieldDelegate{
         
         NSLayoutConstraint.activate([
             advantagesTextField.heightAnchor.constraint(equalToConstant: 54),
-            advantagesTextField.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            advantagesTextField.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             advantagesTextField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             advantagesTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
         ])

@@ -48,6 +48,7 @@ class ReviewViewController: UIViewController {
         tableView.dataSource = self
         tableView.frame = view.bounds
         tableView.separatorStyle = .none
+        
         tableView.register(TitleReviewCell.self, forCellReuseIdentifier: String(describing: TitleReviewCell.self))
         tableView.register(PlusMinusCommentViewCell.self, forCellReuseIdentifier: String(describing: PlusMinusCommentViewCell.self))
         tableView.register(EvaluationViewCell.self, forCellReuseIdentifier: String(describing: EvaluationViewCell.self))
@@ -90,6 +91,8 @@ class ReviewViewController: UIViewController {
             tableView.endUpdates()
             return
         }
+        tableView.beginUpdates()
+        tableView.endUpdates()
         setupUI()
     }
     private func setupUI(){
@@ -140,6 +143,7 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.viewModel = userPhotos
+            
             cell.selectionStyle = .none
             return cell
             

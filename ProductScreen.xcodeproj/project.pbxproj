@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		948D49C32CE209A700F6AA32 /* UserPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */; };
+		94936FC72CE77A4F00119E43 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */; };
 		94A48CFC2CCCFE03007D4C11 /* ApplyPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A48CFB2CCCFE03007D4C11 /* ApplyPromoViewController.swift */; };
 		94A48CFE2CCD165C007D4C11 /* SecretPromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A48CFD2CCD165C007D4C11 /* SecretPromoCell.swift */; };
 		94A48D002CCE1F4C007D4C11 /* ApplyPromoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A48CFF2CCE1F4C007D4C11 /* ApplyPromoViewModel.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoViewCell.swift; sourceTree = "<group>"; };
+		94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
 		94A48CFB2CCCFE03007D4C11 /* ApplyPromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyPromoViewController.swift; sourceTree = "<group>"; };
 		94A48CFD2CCD165C007D4C11 /* SecretPromoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretPromoCell.swift; sourceTree = "<group>"; };
 		94A48CFF2CCE1F4C007D4C11 /* ApplyPromoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyPromoViewModel.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				94E570452CD7CB2100271FFF /* PlusMinusCommentViewCell.swift */,
 				94E570472CD7CB3E00271FFF /* SendReviewViewCell.swift */,
 				94E5704B2CD7F63F00271FFF /* EvaluationViewCell.swift */,
+				94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				94A48D002CCE1F4C007D4C11 /* ApplyPromoViewModel.swift in Sources */,
 				94E5703C2CD3BF2600271FFF /* ReviewViewController.swift in Sources */,
 				94A48CFE2CCD165C007D4C11 /* SecretPromoCell.swift in Sources */,
+				94936FC72CE77A4F00119E43 /* PhotoViewCell.swift in Sources */,
 				94FCEBA82CC020EC005BB7BD /* AppDelegate.swift in Sources */,
 				94E570422CD78DC600271FFF /* ReviewViewModel.swift in Sources */,
 				94E5703E2CD3C53C00271FFF /* ReviewsListViewModel.swift in Sources */,

@@ -7,32 +7,48 @@
 
 import UIKit
 
-class PhotoViewCell: UICollectionViewCell{
+class AddPhotoViewCell: UICollectionViewCell{
     
 }
 
 class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     enum Constants {
-        static let padding: CGFloat = 10
+        static let padding: CGFloat = 8
         static let number: CGFloat = 4
     }
     private var tapGesture: UITapGestureRecognizer?
-    private var clouser: ((Int) -> Void)?
-    private let itemCount = 3
+    private var clouser: ((CGFloat) -> Void)?
+    private let itemMaxCount = 7
     private var width: Int?
     
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let selfImages = viewModel?.selfImages else {return 0}
-        return itemCount
+        if selfImages.count == itemMaxCount {
+            return selfImages.count
+        }
+        return selfImages.count + 1
     }
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let selfImages = self.viewModel?.selfImages else {return PhotoViewCell()}
+        print("row = \(indexPath.row)")
+        if (indexPath.row == selfImages.count) && !(selfImages.count == itemMaxCount) {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoViewCell", for: indexPath) as! AddPhotoViewCell
+            cell.backgroundColor = .blue
+            return cell
+        }
+        
+        let selfImage = self.viewModel?.selfImages?[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoViewCell", for: indexPath) as! PhotoViewCell
-        cell.contentView.backgroundColor = .red
+        cell.selfImage = selfImage
+        
         return cell
     }
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - Constants.padding * (Constants.number + 1)) / Constants.number
+        print(width)
+        print("\(collectionView.frame.size)")
         return .init(width: width, height: width)
     }
     
@@ -42,7 +58,7 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
             collectionView.reloadData()
         }
     }
-   
+    
     private var widthConstraion: NSLayoutConstraint?
     
     private func updateUI(){
@@ -50,31 +66,37 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
         guard let selfImages = viewModel.selfImages else{
             widthConstraion?.constant = 80
             collectionView.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
+            collectionView.layer.cornerRadius = 12
             setupFullButtonAddingPhotosUI()
             setTapGesture()
             return
         }
+        if selfImages.count >= 4 {
+            widthConstraion?.constant = 180
+        }else{
+            widthConstraion?.constant = 80
+        }
         removeTapGesture()
-        widthConstraion?.constant = 100
-        collectionView.backgroundColor = .clear
-    }
-    
+        }
+
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let number: CGFloat = Constants.number
         let padding: CGFloat = Constants.padding
         
+        
         layout.minimumInteritemSpacing = padding
         layout.minimumLineSpacing = padding
-        layout.sectionInset = .init(top: 0, left: Constants.padding, bottom: 0, right: Constants.padding)
+        layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(PhotoViewCell.self, forCellWithReuseIdentifier: "PhotoViewCell")
+        collectionView.register(AddPhotoViewCell.self, forCellWithReuseIdentifier: "AddPhotoViewCell")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.layer.cornerRadius = 12
+        
         return collectionView
     }()
     private lazy var addingPhotosBackgroundView: UIView = {
@@ -86,10 +108,6 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
     @objc func handleCollectionViewTap() {
         print("collectionView tapped!")
         removeTapGesture()
-        
-        
-        
-        
     }
     private func setTapGesture(){
         guard let tapGesture else{
@@ -174,13 +192,14 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
     
     private func setupUIWidthCollectionView(){
         NSLayoutConstraint.activate([
-            collectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            collectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -16),
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 16),
+            //collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            contentView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor)
         ])
-        
-        widthConstraion = collectionView.heightAnchor.constraint(equalToConstant: 200)
+        widthConstraion = collectionView.heightAnchor.constraint(equalToConstant: 100)
         widthConstraion?.isActive = true
+        print("4324234324234234234")
     }
 }
