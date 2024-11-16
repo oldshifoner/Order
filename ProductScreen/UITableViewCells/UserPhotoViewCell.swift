@@ -49,7 +49,16 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
         print("\(collectionView.frame.size)")
         return .init(width: width, height: width)
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selfImages = self.viewModel?.selfImages else { return }
+        
+        if selfImages.count == self.itemMaxCount { return }
+        
+        if indexPath.row == selfImages.count {
+            addImageClouser?(indexPath.row)
+            print(indexPath.row)
+        }
+    }
     public var viewModel: TableViewModel.ViewModelType.Review? {
         didSet {
             updateUI()
@@ -57,6 +66,17 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
         }
     }
     
+    override func prepareForReuse() {
+        collectionView.backgroundColor = nil
+        collectionView.layer.cornerRadius = 0
+        removeAllFirstViews()
+    }
+    private func removeAllFirstViews() {
+        for subview in collectionView.subviews {
+            subview.removeFromSuperview()
+        }
+    }
+
     private var widthConstraion: NSLayoutConstraint?
     
     private func updateUI(){
@@ -66,6 +86,7 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
             collectionView.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
             collectionView.layer.cornerRadius = 12
             setupFullButtonAddingPhotosUI()
+            print("im here")
             setTapGesture()
             return
         }
@@ -198,6 +219,6 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
         ])
         widthConstraion = collectionView.heightAnchor.constraint(equalToConstant: 100)
         widthConstraion?.isActive = true
-        print("4324234324234234234")
+
     }
 }

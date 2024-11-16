@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "initClouserForChangeAnonymously()"
+            landmarkName = "initClouserForChangeEvaluation()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
             endingLineNumber = "68"
-            landmarkName = "ReviewViewModel"
-            landmarkType = "3">
+            landmarkName = "initClouserForChangeAnonymously()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,10 +78,10 @@
             filePath = "ProductScreen/UITableViewCells/UserPhotoViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "updateUI()"
-            landmarkType = "7">
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "UserPhotoViewCell"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "0BD179D9-5A10-4893-B860-03A23C153B3C - 2fddade4d78b301"

@@ -9,6 +9,8 @@ import UIKit
 
 class AddPhotoViewCell: UICollectionViewCell{
     
+    public var addNextPhoto: (()->Void)?
+    
     private lazy var cloudImageUIView: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .clear
