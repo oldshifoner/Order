@@ -17,8 +17,10 @@ class ReviewViewModel {
     
     var tableViewUpdate: (() -> Void)?
     var evaluationUpdate: ((Int) -> Void)?
+    var imagesCellUpdate: ((Int) -> Void)?
     var clouser: ((Int) -> Void)?
     var changeAnonymouslyClouser: ((Bool) -> Void)?
+    var addPhotoClouser: ((Int) -> Void)?
     
     public func showReview() {
         guard let review = self.review else{ return }
@@ -29,8 +31,37 @@ class ReviewViewModel {
         cellViewModels.append(.init(type: .sendReview(review)))
         initClouserForChangeEvaluation()
         initClouserForChangeAnonymously()
+        initClouserForAddPhoto()
     }
     
+    private func initClouserForAddPhoto(){
+        self.addPhotoClouser = { [weak self] indexPhoto in
+            
+            guard let index = self?.getIndexUserPhotos() else {return}
+            let element = self?.cellViewModels[index].type
+            switch element {
+            case .userPhotos(let userPhotos):
+                let userPhotos = userPhotos
+                self?.cellViewModels.remove(at: index)
+                self?.cellViewModels.insert(.init(type: .userPhotos(.init(id: userPhotos.id, title: userPhotos.title, size: userPhotos.size, evaluation: userPhotos.evaluation, titleImage: userPhotos.titleImage, selfImages: self?.addPhotoInArraySelfImages(selfImages: userPhotos.selfImages, index: indexPhoto), advantages: userPhotos.advantages, disadvantages: userPhotos.disadvantages, comment: userPhotos.comment, anonymously: userPhotos.anonymously, isWritten: userPhotos.isWritten))), at: index)
+                self?.imagesCellUpdate?(index)
+            default:
+                break
+            }
+        }
+    }
+    
+    private func addPhotoInArraySelfImages(selfImages: [String]?, index: Int) -> [String]{
+        guard var selfImages else{
+            var selfImages: [String] = []
+            selfImages.append(self.photosLocal[0])
+            return selfImages
+        }
+        
+        selfImages.append(self.photosLocal[index])
+        return selfImages
+    }
+
     private func initClouserForChangeAnonymously(){
         self.changeAnonymouslyClouser = { [weak self] anonymously in
             

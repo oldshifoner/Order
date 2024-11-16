@@ -7,17 +7,14 @@
 
 import UIKit
 
-class AddPhotoViewCell: UICollectionViewCell{
-    
-}
-
 class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     enum Constants {
         static let padding: CGFloat = 8
         static let number: CGFloat = 4
     }
+    public var addImageClouser: ((Int) -> Void)?
+    
     private var tapGesture: UITapGestureRecognizer?
-    private var clouser: ((CGFloat) -> Void)?
     private let itemMaxCount = 7
     private var width: Int?
     
@@ -35,7 +32,8 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
         print("row = \(indexPath.row)")
         if (indexPath.row == selfImages.count) && !(selfImages.count == itemMaxCount) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoViewCell", for: indexPath) as! AddPhotoViewCell
-            cell.backgroundColor = .blue
+            cell.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
+            cell.layer.cornerRadius = 12
             return cell
         }
         
@@ -106,7 +104,7 @@ class UserPhotoViewCell: UITableViewCell, UICollectionViewDelegate, UICollection
         return view
     }()
     @objc func handleCollectionViewTap() {
-        print("collectionView tapped!")
+        addImageClouser?(0)
         removeTapGesture()
     }
     private func setTapGesture(){

@@ -84,17 +84,17 @@ class ReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.showReview()
-        viewModel.evaluationUpdate = { [weak self] index in
-            guard let self else { return }
-            tableView.beginUpdates()
-            tableView.reloadRows(at: [.init(row: index, section: 0)], with: .none)
-            tableView.endUpdates()
-            return
-        }
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        viewModel.evaluationUpdate = { [weak self] index in self?.updateTableViewCell(index: index)}
+        viewModel.imagesCellUpdate = { [weak self] index in self?.updateTableViewCell(index: index)}
         setupUI()
     }
+    
+    private func updateTableViewCell(index: Int){
+        tableView.beginUpdates()
+        tableView.reloadRows(at: [.init(row: index, section: 0)], with: .none)
+        tableView.endUpdates()
+    }
+    
     private func setupUI(){
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -143,7 +143,8 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.viewModel = userPhotos
-            
+//            cell.addImageClouser = {[weak self] index in self?.viewModel.addPhotoClouser?(index)}
+            cell.addImageClouser = self.viewModel.addPhotoClouser
             cell.selectionStyle = .none
             return cell
             

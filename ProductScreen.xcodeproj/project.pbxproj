@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		947F59392CE9189900B4C12A /* AddPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F59382CE9189900B4C12A /* AddPhotoViewCell.swift */; };
 		948D49C32CE209A700F6AA32 /* UserPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */; };
 		94936FC72CE77A4F00119E43 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */; };
 		94A48CFC2CCCFE03007D4C11 /* ApplyPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A48CFB2CCCFE03007D4C11 /* ApplyPromoViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		947F59382CE9189900B4C12A /* AddPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewCell.swift; sourceTree = "<group>"; };
 		948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoViewCell.swift; sourceTree = "<group>"; };
 		94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
 		94A48CFB2CCCFE03007D4C11 /* ApplyPromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyPromoViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				94E570472CD7CB3E00271FFF /* SendReviewViewCell.swift */,
 				94E5704B2CD7F63F00271FFF /* EvaluationViewCell.swift */,
 				94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */,
+				947F59382CE9189900B4C12A /* AddPhotoViewCell.swift */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				94AB5B1E2CC78921006B21FC /* ApplyPromoCodeCell.swift in Sources */,
 				94E5704A2CD7D4D100271FFF /* ReviewUITextField.swift in Sources */,
 				94E5701A2CD3754B00271FFF /* ListReviewsViewController.swift in Sources */,
+				947F59392CE9189900B4C12A /* AddPhotoViewCell.swift in Sources */,
 				94E570402CD3D50B00271FFF /* ReviewCell.swift in Sources */,
 				94AB5B202CC789B3006B21FC /* ViewModel.swift in Sources */,
 				94E570442CD79CFD00271FFF /* TitleReviewCell.swift in Sources */,
