@@ -80,8 +80,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "collectionView"
-            landmarkType = "24">
+            landmarkName = "updateUI()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "0BD179D9-5A10-4893-B860-03A23C153B3C - 2fddade4d78b301"
