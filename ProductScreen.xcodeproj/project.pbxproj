@@ -21,6 +21,7 @@
 		94AB5B202CC789B3006B21FC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AB5B1F2CC789B3006B21FC /* ViewModel.swift */; };
 		94AB5B222CC79800006B21FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AB5B212CC79800006B21FC /* LaunchScreen.storyboard */; };
 		94AB5B242CC79807006B21FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AB5B232CC79807006B21FC /* Main.storyboard */; };
+		94D99D2D2D08114F00B08D83 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D99D2C2D08114F00B08D83 /* MainViewController.swift */; };
 		94E5701A2CD3754B00271FFF /* ListReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E570192CD3754B00271FFF /* ListReviewsViewController.swift */; };
 		94E5703C2CD3BF2600271FFF /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5703B2CD3BF2600271FFF /* ReviewViewController.swift */; };
 		94E5703E2CD3C53C00271FFF /* ReviewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5703D2CD3C53C00271FFF /* ReviewsListViewModel.swift */; };
@@ -54,6 +55,7 @@
 		94AB5B1F2CC789B3006B21FC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		94AB5B212CC79800006B21FC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94AB5B232CC79807006B21FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		94D99D2C2D08114F00B08D83 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		94E570192CD3754B00271FFF /* ListReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReviewsViewController.swift; sourceTree = "<group>"; };
 		94E5703B2CD3BF2600271FFF /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		94E5703D2CD3C53C00271FFF /* ReviewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsListViewModel.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				94A48CFB2CCCFE03007D4C11 /* ApplyPromoViewController.swift */,
 				94E570192CD3754B00271FFF /* ListReviewsViewController.swift */,
 				94E5703B2CD3BF2600271FFF /* ReviewViewController.swift */,
+				94D99D2C2D08114F00B08D83 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				94A48CFE2CCD165C007D4C11 /* SecretPromoCell.swift in Sources */,
 				94936FC72CE77A4F00119E43 /* PhotoViewCell.swift in Sources */,
 				94FCEBA82CC020EC005BB7BD /* AppDelegate.swift in Sources */,
+				94D99D2D2D08114F00B08D83 /* MainViewController.swift in Sources */,
 				94E570422CD78DC600271FFF /* ReviewViewModel.swift in Sources */,
 				94E5703E2CD3C53C00271FFF /* ReviewsListViewModel.swift in Sources */,
 				94A48CFC2CCCFE03007D4C11 /* ApplyPromoViewController.swift in Sources */,
