@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		945EB5D62D0E0CB000DAC652 /* MainOrderRefusalContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945EB5D52D0E0CB000DAC652 /* MainOrderRefusalContentView.swift */; };
 		947F59392CE9189900B4C12A /* AddPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F59382CE9189900B4C12A /* AddPhotoViewCell.swift */; };
 		948D49C32CE209A700F6AA32 /* UserPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */; };
 		94936FC72CE77A4F00119E43 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */; };
@@ -45,7 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		945EB5D52D0E0CB000DAC652 /* MainOrderRefusalContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOrderRefusalContentView.swift; sourceTree = "<group>"; };
 		947F59382CE9189900B4C12A /* AddPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewCell.swift; sourceTree = "<group>"; };
 		948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoViewCell.swift; sourceTree = "<group>"; };
 		94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				94D99D2F2D08226D00B08D83 /* OrderRefusalContentView.swift */,
 				94D99D312D0AA75600B08D83 /* CancellationReasonModel.swift */,
 				94D99D332D0AA8AE00B08D83 /* CancellationViewModel.swift */,
-				945EB5D52D0E0CB000DAC652 /* MainOrderRefusalContentView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -278,7 +275,6 @@
 				94D99D322D0AA75600B08D83 /* CancellationReasonModel.swift in Sources */,
 				94E570502CDE060400271FFF /* CheckBoxAnonymouslyUIButton.swift in Sources */,
 				94AB5B1A2CC7822A006B21FC /* TitleCell.swift in Sources */,
-				945EB5D62D0E0CB000DAC652 /* MainOrderRefusalContentView.swift in Sources */,
 				94A48D022CCE325D007D4C11 /* EnterPromoCell.swift in Sources */,
 				94E570482CD7CB3E00271FFF /* SendReviewViewCell.swift in Sources */,
 				94FCEBAA2CC020EC005BB7BD /* SceneDelegate.swift in Sources */,

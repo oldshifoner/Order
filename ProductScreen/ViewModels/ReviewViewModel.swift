@@ -132,7 +132,7 @@ class ReviewViewModel {
     private func getIndexTitleReview() -> Int?{
         guard let index = self.cellViewModels.firstIndex(where: { value in
             switch value.type {
-            case .titleReview(let titleReview):
+            case .titleReview(let _titleReview):
                 return true
             default:
                 return false
@@ -143,7 +143,7 @@ class ReviewViewModel {
     private func getIndexEvaluation() -> Int?{
         guard let index = self.cellViewModels.firstIndex(where: { value in
             switch value.type {
-            case .evaluation(let evaluation):
+            case .evaluation(let _evaluation):
                 return true
             default:
                 return false
@@ -154,7 +154,7 @@ class ReviewViewModel {
     private func getIndexUserPhotos() -> Int?{
         guard let index = self.cellViewModels.firstIndex(where: { value in
             switch value.type {
-            case .userPhotos(let userPhotos):
+            case .userPhotos(let _userPhotos):
                 return true
             default:
                 return false
@@ -165,7 +165,7 @@ class ReviewViewModel {
     private func getIndexPlusMinusComment() -> Int?{
         guard let index = self.cellViewModels.firstIndex(where: { value in
             switch value.type {
-            case .plusMinusComment(let plusMinusComment):
+            case .plusMinusComment(let _plusMinusComment):
                 return true
             default:
                 return false
@@ -176,7 +176,7 @@ class ReviewViewModel {
     private func getIndexSendReview() -> Int?{
         guard let index = self.cellViewModels.firstIndex(where: { value in
             switch value.type {
-            case .sendReview(let sendReview):
+            case .sendReview(let _sendReview):
                 return true
             default:
                 return false

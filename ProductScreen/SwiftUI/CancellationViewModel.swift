@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Foundation
 
 class CancellationViewModel: ObservableObject {
     @Published var reasons: [CancellationReasonModel] = [
@@ -58,6 +57,7 @@ class CancellationViewModel: ObservableObject {
         for index in reasons.indices {
             reasons[index].isSelected = false
             reasons[index].comment = nil
+            selectedOtherReason = false
         }
     }
 }

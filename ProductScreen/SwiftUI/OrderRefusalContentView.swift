@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OrderRefusalContentView: View {
-    @EnvironmentObject var viewModel: CancellationViewModel
+    @StateObject var viewModel: CancellationViewModel = CancellationViewModel()
         
     var body: some View {
         ZStack {
@@ -28,7 +28,7 @@ struct OrderRefusalContentView: View {
 
                 ForEach(viewModel.reasons, id: \.self) { reason in
                     @State var reason = reason
-                    ButtonReasonView(reason: $reason, viewModel: _viewModel)
+                    ButtonReasonView(reason: $reason, viewModel: viewModel)
                 }
                 if viewModel.selectedOtherReason {
                     VStack(alignment: .leading, spacing: 8) {
@@ -104,7 +104,7 @@ struct OrderRefusalContentView: View {
 
 struct ButtonReasonView: View{
     @Binding var reason: CancellationReasonModel
-    @EnvironmentObject var viewModel: CancellationViewModel
+    @StateObject var viewModel: CancellationViewModel
     
     var body: some View {
         Button(action: {

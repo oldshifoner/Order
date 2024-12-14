@@ -27,7 +27,7 @@ class SecretPromoCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        guard let viewModel else {
+        guard let _viewModel = viewModel else {
             return
         }
         namePromoLabel.text = nil

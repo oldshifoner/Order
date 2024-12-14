@@ -24,7 +24,7 @@ class ApplyPromoViewModel {
     
     public func applyPromo(promoString: String) {
         
-        guard let index = secretPromocodes.first(where: { value in
+        guard let _index = secretPromocodes.first(where: { value in
             switch value.type {
             case .secretPromo(let secretPromo):
                 if secretPromo.title == promoString {
@@ -54,7 +54,7 @@ class ApplyPromoViewModel {
         let element = cellViewModels[index].type
         switch element {
         case .enterSecretPromo(let promo):
-            let promo = promo
+            let _promo = promo
             cellViewModels.remove(at: index)
             cellViewModels.insert(.init(type: .enterSecretPromo(.init(errorLabel: "К сожалению, данного промокода не существует"))), at: index)
             dataUpdated?()

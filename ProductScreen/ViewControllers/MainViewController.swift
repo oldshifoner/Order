@@ -15,7 +15,7 @@ class MainViewController: UIViewController{
     }
     
     private func pushOrderRefusalContentView(){
-        let orderRefusalContentView = MainOrderRefusalContentView()
+        let orderRefusalContentView = OrderRefusalContentView()
         let hostingController = UIHostingController(rootView: orderRefusalContentView)
         navigationController?.pushViewController(hostingController, animated: true)
         

@@ -17,7 +17,7 @@ class PlusMinusCommentViewCell: UITableViewCell, UITextFieldDelegate{
         }
     }
     private func updateUI() {
-        guard let viewModel else {
+        guard let _viewModel = viewModel else {
             return
         }
         advantagesTextField.placeholder = "Достоинства"
