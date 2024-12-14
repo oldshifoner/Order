@@ -13,48 +13,100 @@ struct OrderRefusalContentView: View {
     var body: some View {
         ZStack {
             VStack() {
-                Spacer()
-                    .frame(height: 26)
-                
                 if viewModel.showError {
-                    Text("Пожалуйста, выберите причину")
-                        .font(.subheadline)
-                        .foregroundColor(.red)
-                        .padding()
-                        .background(Color.red.opacity(0.1))
-                        .cornerRadius(8)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
+                    HStack{
+                        Text("Пожалуйста, выберите причину")
+                            .foregroundColor(.red)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 14))
+                            .background(Color.clear)
+                            .padding(.top, 13)
+                            .padding(.leading, 15)
+                            .padding(.bottom, 16)
+                            .padding(.trailing, 16)
+                        Image("error")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .background(Color.clear)
+                            .padding(.bottom, 14)
+                            .padding(.trailing, 14)
+                            .padding(.top, 14)
+                      
+                    }
+                    .frame(height: 48)
+                    .background(Color.red.opacity(0.1))
+                    .cornerRadius(12)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 16)
+                    .padding(.bottom, 0)
+                } 
+                Spacer()
+                    .frame(height: 16)
 
                 ForEach(viewModel.reasons, id: \.self) { reason in
                     @State var reason = reason
                     ButtonReasonView(reason: $reason, viewModel: viewModel)
                 }
                 if viewModel.selectedOtherReason {
-                    VStack(alignment: .leading, spacing: 8) {
+                    HStack{
                         TextField("Опишите проблему",text: .constant(""))
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .font(.system(size: 16))
+                            .background(Color.clear)
+                            .accentColor(.black)
+                            .padding(.top, 16)
+                            .padding(.horizontal, 16)
                             .padding(.bottom, 16)
+                            .lineLimit(1)
+                            .fixedSize()
+                        Spacer()
                     }
-                }
-                Text("Обычно деньги сразу возвращаются на карту. В некоторых случаях это может занять до 3 рабочих дней.")
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                    
-                    .background(Color.yellow.opacity(0.2))
+                    .background(Color.init(red: 246/255, green: 246/255, blue: 246/255))
                     .cornerRadius(12)
+                    .frame(height: 54)
+                    .padding(.bottom, 5)
+                    .padding(.horizontal, 16)
+                }
+                HStack{
+                    Text("Обычно деньги сразу возвращаются на карту. В некоторых случаях это может занять до 3 рабочих дней.")
+                        .font(.system(size: 14))
+                        .foregroundColor(.black)
+                        .background(Color.clear)
+                        .padding(.top, 12)
+                        .padding(.leading, 16)
+                        .padding(.bottom, 12)
+                        .padding(.trailing, 16)
+                    Spacer()
+                    Image("yellowInfoIcon")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .background(Color.clear)
+                        .padding(.bottom, 49)
+                        .padding(.trailing, 16)
+                        .padding(.top, 12)
+                    
+                }
+                .frame(height: 85)
+                .background(Color.init(red: 254/255, green: 247/255, blue: 222/255))
+                .cornerRadius(12)
+                .padding(.horizontal, 16)
+                .padding(.top, 0)
+                .padding(.bottom, 0)
 
                 Button(action: {
                     viewModel.submitCancellation()
                 }) {
                     Text("Отменить заказ")
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.red)
+                        .font(.system(size: 16))
                         .foregroundColor(.white)
-                        .cornerRadius(8)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                        
                 }
-                .padding(.horizontal)
+                .background(Color.init(red: 255/255, green: 70/255, blue: 17/255))
+                .cornerRadius(12)
+                .frame(height: 54)
+                .padding(.top, 6)
+                .padding(.horizontal, 16)
+                
                 Spacer()
             }
             
@@ -81,19 +133,18 @@ struct OrderRefusalContentView: View {
             }
         }
         .overlay(
-            // Уведомление
             VStack {
                 if viewModel.showNotification {
                     Text("Заказ успешно отменён")
-                        .font(.body)
-                        .padding()
+                        .font(.system(size: 14))
                         .frame(maxWidth: .infinity)
-                        .background(Color.green)
+                        .frame(height: 40)
+                        .background(Color.init(red: 34/255, green: 34/255, blue: 34/255).opacity(0.6))
                         .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .padding()
+                        .cornerRadius(32)
                         .transition(.move(edge: .bottom))
                         .animation(.easeInOut, value: viewModel.showNotification)
+                        .padding(.horizontal, 84)
                 }
             },
             alignment: .bottom
@@ -122,6 +173,8 @@ struct ButtonReasonView: View{
                 .frame(width: 35, height: 10)
                 .padding(.leading, 0)
         }
+        
+        .padding(.bottom, 15)
     }
 }
 
