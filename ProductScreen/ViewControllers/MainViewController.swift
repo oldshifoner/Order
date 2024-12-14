@@ -6,11 +6,18 @@
 //
 
 import UIKit
-
+import SwiftUI
 
 class MainViewController: UIViewController{
     
     override func viewDidLoad() {
-        //init
+        pushOrderRefusalContentView()
+    }
+    
+    private func pushOrderRefusalContentView(){
+        let orderRefusalContentView = MainOrderRefusalContentView()
+        let hostingController = UIHostingController(rootView: orderRefusalContentView)
+        navigationController?.pushViewController(hostingController, animated: true)
+        
     }
 }

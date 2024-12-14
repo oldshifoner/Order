@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		945EB5D62D0E0CB000DAC652 /* MainOrderRefusalContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945EB5D52D0E0CB000DAC652 /* MainOrderRefusalContentView.swift */; };
 		947F59392CE9189900B4C12A /* AddPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F59382CE9189900B4C12A /* AddPhotoViewCell.swift */; };
 		948D49C32CE209A700F6AA32 /* UserPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */; };
 		94936FC72CE77A4F00119E43 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */; };
@@ -22,6 +23,9 @@
 		94AB5B222CC79800006B21FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AB5B212CC79800006B21FC /* LaunchScreen.storyboard */; };
 		94AB5B242CC79807006B21FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AB5B232CC79807006B21FC /* Main.storyboard */; };
 		94D99D2D2D08114F00B08D83 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D99D2C2D08114F00B08D83 /* MainViewController.swift */; };
+		94D99D302D08226D00B08D83 /* OrderRefusalContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D99D2F2D08226D00B08D83 /* OrderRefusalContentView.swift */; };
+		94D99D322D0AA75600B08D83 /* CancellationReasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D99D312D0AA75600B08D83 /* CancellationReasonModel.swift */; };
+		94D99D342D0AA8AE00B08D83 /* CancellationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D99D332D0AA8AE00B08D83 /* CancellationViewModel.swift */; };
 		94E5701A2CD3754B00271FFF /* ListReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E570192CD3754B00271FFF /* ListReviewsViewController.swift */; };
 		94E5703C2CD3BF2600271FFF /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5703B2CD3BF2600271FFF /* ReviewViewController.swift */; };
 		94E5703E2CD3C53C00271FFF /* ReviewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E5703D2CD3C53C00271FFF /* ReviewsListViewModel.swift */; };
@@ -41,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		945EB5D52D0E0CB000DAC652 /* MainOrderRefusalContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOrderRefusalContentView.swift; sourceTree = "<group>"; };
 		947F59382CE9189900B4C12A /* AddPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewCell.swift; sourceTree = "<group>"; };
 		948D49C22CE209A700F6AA32 /* UserPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoViewCell.swift; sourceTree = "<group>"; };
 		94936FC62CE77A4F00119E43 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
@@ -56,6 +61,9 @@
 		94AB5B212CC79800006B21FC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94AB5B232CC79807006B21FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		94D99D2C2D08114F00B08D83 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		94D99D2F2D08226D00B08D83 /* OrderRefusalContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRefusalContentView.swift; sourceTree = "<group>"; };
+		94D99D312D0AA75600B08D83 /* CancellationReasonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationReasonModel.swift; sourceTree = "<group>"; };
+		94D99D332D0AA8AE00B08D83 /* CancellationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellationViewModel.swift; sourceTree = "<group>"; };
 		94E570192CD3754B00271FFF /* ListReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReviewsViewController.swift; sourceTree = "<group>"; };
 		94E5703B2CD3BF2600271FFF /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		94E5703D2CD3C53C00271FFF /* ReviewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsListViewModel.swift; sourceTree = "<group>"; };
@@ -131,6 +139,17 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		94D99D2E2D08222C00B08D83 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				94D99D2F2D08226D00B08D83 /* OrderRefusalContentView.swift */,
+				94D99D312D0AA75600B08D83 /* CancellationReasonModel.swift */,
+				94D99D332D0AA8AE00B08D83 /* CancellationViewModel.swift */,
+				945EB5D52D0E0CB000DAC652 /* MainOrderRefusalContentView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		94E570512CDE061A00271FFF /* CustomUIViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +179,7 @@
 		94FCEBA62CC020EC005BB7BD /* ProductScreen */ = {
 			isa = PBXGroup;
 			children = (
+				94D99D2E2D08222C00B08D83 /* SwiftUI */,
 				94B0F8A12CC8BB6000BDB08F /* ViewControllers */,
 				94AB5B162CC76273006B21FC /* ViewModels */,
 				94AB5B152CC761FE006B21FC /* UITableViewCells */,
@@ -255,12 +275,15 @@
 				94E5703E2CD3C53C00271FFF /* ReviewsListViewModel.swift in Sources */,
 				94A48CFC2CCCFE03007D4C11 /* ApplyPromoViewController.swift in Sources */,
 				94E5704E2CDB72EB00271FFF /* StarUIImageView.swift in Sources */,
+				94D99D322D0AA75600B08D83 /* CancellationReasonModel.swift in Sources */,
 				94E570502CDE060400271FFF /* CheckBoxAnonymouslyUIButton.swift in Sources */,
 				94AB5B1A2CC7822A006B21FC /* TitleCell.swift in Sources */,
+				945EB5D62D0E0CB000DAC652 /* MainOrderRefusalContentView.swift in Sources */,
 				94A48D022CCE325D007D4C11 /* EnterPromoCell.swift in Sources */,
 				94E570482CD7CB3E00271FFF /* SendReviewViewCell.swift in Sources */,
 				94FCEBAA2CC020EC005BB7BD /* SceneDelegate.swift in Sources */,
 				94AB5B1C2CC788D9006B21FC /* TotalCell.swift in Sources */,
+				94D99D342D0AA8AE00B08D83 /* CancellationViewModel.swift in Sources */,
 				948D49C32CE209A700F6AA32 /* UserPhotoViewCell.swift in Sources */,
 				94E570462CD7CB2100271FFF /* PlusMinusCommentViewCell.swift in Sources */,
 				94AB5B1E2CC78921006B21FC /* ApplyPromoCodeCell.swift in Sources */,
@@ -269,6 +292,7 @@
 				947F59392CE9189900B4C12A /* AddPhotoViewCell.swift in Sources */,
 				94E570402CD3D50B00271FFF /* ReviewCell.swift in Sources */,
 				94AB5B202CC789B3006B21FC /* ViewModel.swift in Sources */,
+				94D99D302D08226D00B08D83 /* OrderRefusalContentView.swift in Sources */,
 				94E570442CD79CFD00271FFF /* TitleReviewCell.swift in Sources */,
 				94AB5B182CC7817A006B21FC /* PromoCell.swift in Sources */,
 			);
